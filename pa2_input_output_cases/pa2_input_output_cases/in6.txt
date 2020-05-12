@@ -1,8 +1,0 @@
-malloc p 1000
-free p
-malloc q 500
-malloc r 462
-malloc s 5000
-free r
-free q
-free s

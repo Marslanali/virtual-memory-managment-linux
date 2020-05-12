@@ -1,2 +1,0 @@
-malloc a 1000
-free a

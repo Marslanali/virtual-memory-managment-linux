@@ -1,4 +1,0 @@
-=== malloc a 1000 ===
-Block 01: [OCCP] size = 1000 bytes
-=== free a ===
-Block 01: [FREE] size = 1000 bytes
