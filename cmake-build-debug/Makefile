@@ -111,17 +111,57 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named vim
+# Target rules for targets named vmm1
 
 # Build rule for target.
-vim: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 vim
-.PHONY : vim
+vmm1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vmm1
+.PHONY : vmm1
 
 # fast build rule for target.
-vim/fast:
-	$(MAKE) -f CMakeFiles/vim.dir/build.make CMakeFiles/vim.dir/build
-.PHONY : vim/fast
+vmm1/fast:
+	$(MAKE) -f CMakeFiles/vmm1.dir/build.make CMakeFiles/vmm1.dir/build
+.PHONY : vmm1/fast
+
+#=============================================================================
+# Target rules for targets named vmm2
+
+# Build rule for target.
+vmm2: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vmm2
+.PHONY : vmm2
+
+# fast build rule for target.
+vmm2/fast:
+	$(MAKE) -f CMakeFiles/vmm2.dir/build.make CMakeFiles/vmm2.dir/build
+.PHONY : vmm2/fast
+
+vmm1.o: vmm1.c.o
+
+.PHONY : vmm1.o
+
+# target to build an object file
+vmm1.c.o:
+	$(MAKE) -f CMakeFiles/vmm1.dir/build.make CMakeFiles/vmm1.dir/vmm1.c.o
+.PHONY : vmm1.c.o
+
+vmm1.i: vmm1.c.i
+
+.PHONY : vmm1.i
+
+# target to preprocess a source file
+vmm1.c.i:
+	$(MAKE) -f CMakeFiles/vmm1.dir/build.make CMakeFiles/vmm1.dir/vmm1.c.i
+.PHONY : vmm1.c.i
+
+vmm1.s: vmm1.c.s
+
+.PHONY : vmm1.s
+
+# target to generate assembly for a file
+vmm1.c.s:
+	$(MAKE) -f CMakeFiles/vmm1.dir/build.make CMakeFiles/vmm1.dir/vmm1.c.s
+.PHONY : vmm1.c.s
 
 vmm2.o: vmm2.c.o
 
@@ -129,7 +169,7 @@ vmm2.o: vmm2.c.o
 
 # target to build an object file
 vmm2.c.o:
-	$(MAKE) -f CMakeFiles/vim.dir/build.make CMakeFiles/vim.dir/vmm2.c.o
+	$(MAKE) -f CMakeFiles/vmm2.dir/build.make CMakeFiles/vmm2.dir/vmm2.c.o
 .PHONY : vmm2.c.o
 
 vmm2.i: vmm2.c.i
@@ -138,7 +178,7 @@ vmm2.i: vmm2.c.i
 
 # target to preprocess a source file
 vmm2.c.i:
-	$(MAKE) -f CMakeFiles/vim.dir/build.make CMakeFiles/vim.dir/vmm2.c.i
+	$(MAKE) -f CMakeFiles/vmm2.dir/build.make CMakeFiles/vmm2.dir/vmm2.c.i
 .PHONY : vmm2.c.i
 
 vmm2.s: vmm2.c.s
@@ -147,7 +187,7 @@ vmm2.s: vmm2.c.s
 
 # target to generate assembly for a file
 vmm2.c.s:
-	$(MAKE) -f CMakeFiles/vim.dir/build.make CMakeFiles/vim.dir/vmm2.c.s
+	$(MAKE) -f CMakeFiles/vmm2.dir/build.make CMakeFiles/vmm2.dir/vmm2.c.s
 .PHONY : vmm2.c.s
 
 # Help Target
@@ -157,8 +197,12 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... vim"
 	@echo "... edit_cache"
+	@echo "... vmm1"
+	@echo "... vmm2"
+	@echo "... vmm1.o"
+	@echo "... vmm1.i"
+	@echo "... vmm1.s"
 	@echo "... vmm2.o"
 	@echo "... vmm2.i"
 	@echo "... vmm2.s"

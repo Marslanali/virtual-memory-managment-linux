@@ -1,3 +1,4 @@
 /home/arslan/CLionProjects/virtual-memory-managment-linux/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/arslan/CLionProjects/virtual-memory-managment-linux/cmake-build-debug/CMakeFiles/vim.dir
 /home/arslan/CLionProjects/virtual-memory-managment-linux/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/arslan/CLionProjects/virtual-memory-managment-linux/cmake-build-debug/CMakeFiles/vmm1.dir
+/home/arslan/CLionProjects/virtual-memory-managment-linux/cmake-build-debug/CMakeFiles/vmm2.dir

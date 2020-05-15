@@ -1,0 +1,27 @@
+=== malloc a 1000 ===
+Block 01: [OCCP] size = 1000 bytes
+=== free a ===
+Block 01: [FREE] size = 1000 bytes
+=== malloc b 300 ===
+Block 01: [OCCP] size = 300 bytes
+Block 02: [FREE] size = 675 bytes
+=== malloc c 301 ===
+Block 01: [OCCP] size = 300 bytes
+Block 02: [OCCP] size = 301 bytes
+Block 03: [FREE] size = 349 bytes
+=== free c ===
+Block 01: [OCCP] size = 300 bytes
+Block 02: [FREE] size = 301 bytes
+Block 03: [FREE] size = 349 bytes
+=== free b ===
+Block 01: [FREE] size = 300 bytes
+Block 02: [FREE] size = 301 bytes
+Block 03: [FREE] size = 349 bytes
+=== malloc d 301 ===
+Block 01: [FREE] size = 300 bytes
+Block 02: [OCCP] size = 301 bytes
+Block 03: [FREE] size = 349 bytes
+=== free d ===
+Block 01: [FREE] size = 300 bytes
+Block 02: [FREE] size = 301 bytes
+Block 03: [FREE] size = 349 bytes

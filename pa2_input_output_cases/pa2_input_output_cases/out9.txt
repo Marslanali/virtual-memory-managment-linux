@@ -1,0 +1,108 @@
+=== malloc a 1000 ===
+Block 01: [OCCP] size = 1000 bytes
+=== free a ===
+Block 01: [FREE] size = 1000 bytes
+=== malloc a 100 ===
+Block 01: [OCCP] size = 100 bytes
+Block 02: [FREE] size = 875 bytes
+=== malloc b 100 ===
+Block 01: [OCCP] size = 100 bytes
+Block 02: [OCCP] size = 100 bytes
+Block 03: [FREE] size = 750 bytes
+=== malloc c 100 ===
+Block 01: [OCCP] size = 100 bytes
+Block 02: [OCCP] size = 100 bytes
+Block 03: [OCCP] size = 100 bytes
+Block 04: [FREE] size = 625 bytes
+=== malloc d 100 ===
+Block 01: [OCCP] size = 100 bytes
+Block 02: [OCCP] size = 100 bytes
+Block 03: [OCCP] size = 100 bytes
+Block 04: [OCCP] size = 100 bytes
+Block 05: [FREE] size = 500 bytes
+=== malloc e 100 ===
+Block 01: [OCCP] size = 100 bytes
+Block 02: [OCCP] size = 100 bytes
+Block 03: [OCCP] size = 100 bytes
+Block 04: [OCCP] size = 100 bytes
+Block 05: [OCCP] size = 100 bytes
+Block 06: [FREE] size = 375 bytes
+=== malloc f 100 ===
+Block 01: [OCCP] size = 100 bytes
+Block 02: [OCCP] size = 100 bytes
+Block 03: [OCCP] size = 100 bytes
+Block 04: [OCCP] size = 100 bytes
+Block 05: [OCCP] size = 100 bytes
+Block 06: [OCCP] size = 100 bytes
+Block 07: [FREE] size = 250 bytes
+=== free a ===
+Block 01: [FREE] size = 100 bytes
+Block 02: [OCCP] size = 100 bytes
+Block 03: [OCCP] size = 100 bytes
+Block 04: [OCCP] size = 100 bytes
+Block 05: [OCCP] size = 100 bytes
+Block 06: [OCCP] size = 100 bytes
+Block 07: [FREE] size = 250 bytes
+=== malloc a 50 ===
+Block 01: [OCCP] size = 50 bytes
+Block 02: [FREE] size = 25 bytes
+Block 03: [OCCP] size = 100 bytes
+Block 04: [OCCP] size = 100 bytes
+Block 05: [OCCP] size = 100 bytes
+Block 06: [OCCP] size = 100 bytes
+Block 07: [OCCP] size = 100 bytes
+Block 08: [FREE] size = 250 bytes
+=== free b ===
+Block 01: [OCCP] size = 50 bytes
+Block 02: [FREE] size = 25 bytes
+Block 03: [FREE] size = 100 bytes
+Block 04: [OCCP] size = 100 bytes
+Block 05: [OCCP] size = 100 bytes
+Block 06: [OCCP] size = 100 bytes
+Block 07: [OCCP] size = 100 bytes
+Block 08: [FREE] size = 250 bytes
+=== free c ===
+Block 01: [OCCP] size = 50 bytes
+Block 02: [FREE] size = 25 bytes
+Block 03: [FREE] size = 100 bytes
+Block 04: [FREE] size = 100 bytes
+Block 05: [OCCP] size = 100 bytes
+Block 06: [OCCP] size = 100 bytes
+Block 07: [OCCP] size = 100 bytes
+Block 08: [FREE] size = 250 bytes
+=== free d ===
+Block 01: [OCCP] size = 50 bytes
+Block 02: [FREE] size = 25 bytes
+Block 03: [FREE] size = 100 bytes
+Block 04: [FREE] size = 100 bytes
+Block 05: [FREE] size = 100 bytes
+Block 06: [OCCP] size = 100 bytes
+Block 07: [OCCP] size = 100 bytes
+Block 08: [FREE] size = 250 bytes
+=== free e ===
+Block 01: [OCCP] size = 50 bytes
+Block 02: [FREE] size = 25 bytes
+Block 03: [FREE] size = 100 bytes
+Block 04: [FREE] size = 100 bytes
+Block 05: [FREE] size = 100 bytes
+Block 06: [FREE] size = 100 bytes
+Block 07: [OCCP] size = 100 bytes
+Block 08: [FREE] size = 250 bytes
+=== free f ===
+Block 01: [OCCP] size = 50 bytes
+Block 02: [FREE] size = 25 bytes
+Block 03: [FREE] size = 100 bytes
+Block 04: [FREE] size = 100 bytes
+Block 05: [FREE] size = 100 bytes
+Block 06: [FREE] size = 100 bytes
+Block 07: [FREE] size = 100 bytes
+Block 08: [FREE] size = 250 bytes
+=== free a ===
+Block 01: [FREE] size = 50 bytes
+Block 02: [FREE] size = 25 bytes
+Block 03: [FREE] size = 100 bytes
+Block 04: [FREE] size = 100 bytes
+Block 05: [FREE] size = 100 bytes
+Block 06: [FREE] size = 100 bytes
+Block 07: [FREE] size = 100 bytes
+Block 08: [FREE] size = 250 bytes

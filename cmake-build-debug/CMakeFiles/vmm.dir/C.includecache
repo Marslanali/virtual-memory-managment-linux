@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/arslan/CLionProjects/virtual-memory-managment-linux/vmm2.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+unistd.h
+-
+
