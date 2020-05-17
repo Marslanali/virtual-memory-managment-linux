@@ -1,1 +1,0 @@
-gcc -g   CMakeFiles/vim.dir/vmm2.c.o  -o vim 

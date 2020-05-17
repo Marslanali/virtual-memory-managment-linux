@@ -1,1 +1,0 @@
-gcc -g   CMakeFiles/vmm1.dir/vmm1.c.o  -o vmm1 
