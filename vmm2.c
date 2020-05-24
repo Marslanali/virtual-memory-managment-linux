@@ -23,7 +23,7 @@ meta_data {
 #define MIN_DEALLOC 1 * sysconf(_SC_PAGESIZE)
 #endif
 
-#define BLOCK_MEM(ptr) ((void *)((ulong)ptr + sizeof(struct meta_data)))
+#define BLOCK_MEM(ptr)    ((void *)((ulong)ptr + sizeof(struct meta_data)))
 #define BLOCK_HEADER(ptr) ((void *)((ulong)ptr - sizeof(struct meta_data)))
 
 static struct meta_data *head = NULL;
@@ -46,14 +46,14 @@ void init_list(struct meta_data *list);
 // Students are required to implement these functions below
 void *mm_malloc(size_t size);
 void mm_free(void *p);
-void mm_print(struct meta_data* cur);
+void mm_print(struct meta_data *cur);
 
 // new functions
 void clean();
 struct meta_data *split(struct meta_data *block, size_t size);
 void scan_merge();
-void list_add(struct meta_data * block);
-void free_list_remove(struct meta_data * block);
+void list_add(struct meta_data *block);
+void free_list_remove(struct meta_data *block);
 
 int main(int argc, char const *argv[]) {
   printf("mem page size: %ld bytes\n", sysconf(_SC_PAGESIZE));
@@ -64,19 +64,19 @@ int main(int argc, char const *argv[]) {
   void *pointers[26] = {NULL};
   // TODO: Complete the main function here
   pointers[0] = (char *)mm_malloc(1000);
-  mm_print((ulong)pointers[0]  - sizeof(struct meta_data));
+  mm_print((ulong)pointers[0] - sizeof(struct meta_data));
   mm_free(pointers[0]);
 
   pointers[1] = (char *)mm_malloc(2000);
-  mm_print((ulong)pointers[1]  - sizeof(struct meta_data));
+  mm_print((ulong)pointers[1] - sizeof(struct meta_data));
   mm_free(pointers[1]);
 
   pointers[2] = (char *)mm_malloc(3000);
-  mm_print((ulong)pointers[2]  - sizeof(struct meta_data));
+  mm_print((ulong)pointers[2] - sizeof(struct meta_data));
   mm_free(pointers[3]);
 
   pointers[3] = (char *)mm_malloc(4000);
-  mm_print((ulong)pointers[3]  - sizeof(struct meta_data));
+  mm_print((ulong)pointers[3] - sizeof(struct meta_data));
   mm_free(pointers[3]);
 
   atexit(clean);
@@ -87,28 +87,23 @@ void free_list_remove(struct meta_data *block) {
   if (!block->prev) {
     if (block->next)
       head = block->next;
-      else
+    else
       head = NULL;
   } else
     block->prev->next = block->next;
-  if (block->next)
-    block->next->prev = block->prev;
-
+  if (block->next) block->next->prev = block->prev;
 }
 
 void list_add(struct meta_data *block) {
-
   block->prev = NULL;
   block->next = NULL;
   if (!head || (ulong)head > (ulong)block) {
-    if (head)
-      head->prev = block;
+    if (head) head->prev = block;
     block->next = head;
     head = block;
   } else {
     struct meta_data *curr = head;
-    while (curr->next && (ulong)curr->next < (ulong)block)
-      curr = curr->next;
+    while (curr->next && (ulong)curr->next < (ulong)block) curr = curr->next;
     block->next = curr->next;
     curr->next = block;
   }
@@ -122,7 +117,7 @@ void list_add(struct meta_data *block) {
  * If the free block is larger then MIN_DEALLOC then the block is released
  * to the Operating system by calling brk.
  *
-*/
+ */
 
 void scan_merge() {
   struct meta_data *curr = head;
@@ -142,7 +137,7 @@ void scan_merge() {
       curr->next = curr->next->next;
       if (curr->next)
         curr->next->prev = curr;
-       else
+      else
         break;
     }
     curr = curr->next;
@@ -153,8 +148,7 @@ void scan_merge() {
    * number of calls to sbrk/brk */
   if (header_curr + curr->size + sizeof(struct meta_data) == program_break && curr->size >= MIN_DEALLOC) {
     free_list_remove(curr);
-      if (brk(curr) != 0)
-      printf("error!!!! freeing memory\n");
+    if (brk(curr) != 0) printf("error!!!! freeing memory\n");
   }
 }
 
@@ -169,7 +163,6 @@ struct meta_data *split(struct meta_data *block, size_t size) {
 }
 
 void *mm_malloc(size_t size) {
-
   void *block_mem;
   struct meta_data *ptr, *newptr;
   size_t alloc_size = size >= ALLOC_UNIT ? size + sizeof(struct meta_data) : ALLOC_UNIT;
@@ -179,21 +172,21 @@ void *mm_malloc(size_t size) {
       block_mem = BLOCK_MEM(ptr);
       free_list_remove(ptr);
       if (ptr->size == size)
-          // a perfect sized block is now found, and return it
+        // a perfect sized block is now found, and return it
         return block_mem;
-        //  block is bigger then requested, split it and add
-        // the spare to our free list
+      //  block is bigger then requested, split it and add
+      // the spare to our free list
       newptr = split(ptr, size);
       list_add(newptr);
       return block_mem;
     } else
       ptr = ptr->next;
   }
-     /* Here we are unable to find a free block on our free list, so we
-	 * should ask the operating system for memory using sbrk. We will alloc
-	 * more alloc_size bytes and then split the newly allocated block to keep
-     * the spare space on our free list
-      */
+  /* Here we are unable to find a free block on our free list, so we
+   * should ask the operating system for memory using sbrk. We will alloc
+   * more alloc_size bytes and then split the newly allocated block to keep
+   * the spare space on our free list
+   */
   ptr = sbrk(alloc_size);
   if (!ptr) {
     printf("failed to alloc %ld\n", alloc_size);
@@ -211,29 +204,28 @@ void *mm_malloc(size_t size) {
 
 void mm_free(void *ptr) {
   list_add(BLOCK_HEADER(ptr));
-  head->free='f';
-  mm_print( head);
+  head->free = 'f';
+  mm_print(head);
   scan_merge();
 }
 
 void clean() {
-/*  printf("cleaning up memory up\n");*/
+  /*  printf("cleaning up memory up\n");*/
   if (head) {
-    if (brk(head) != 0)
-      printf("failed to cleanup memory!!!");
+    if (brk(head) != 0) printf("failed to cleanup memory!!!");
   }
   head = NULL;
-
 }
 
-void mm_print(  struct meta_data* cur) {
+void mm_print(struct meta_data *cur) {
   /*struct meta_data* cur = head;*/
   while (cur) {
-    printf("=== malloc Pointer[%i] %i === \n",i,cur->size);
-    printf("Block %02d: [%s] size = %d bytes\n", i, (cur->free == 'f') ? "FREE" : "OCCP", cur->size);  //// block number - counting from bottom,  free or
-      /// occupied, // size, in term of bytes
-      cur = cur->next;
-    i+=1;
+    printf("=== malloc Pointer[%i] %i === \n", i, cur->size);
+    printf("Block %02d: [%s] size = %d bytes\n", i, (cur->free == 'f') ? "FREE" : "OCCP",
+           cur->size);  //// block number - counting from bottom,  free or
+    /// occupied, // size, in term of bytes
+    cur = cur->next;
+    i += 1;
     break;
   }
 }
