@@ -62,22 +62,26 @@ int main(int argc, char const *argv[]) {
   // Here is the mapping rule
   // a=>0, b=>1, ..., z=>25
   void *pointers[26] = {NULL};
+  char str1[20], str2[30], str3[10];
+
+  scanf("%s %s %s", str1, str2, str3);
+  printf("%s %s %s", str1, str2, str3);
   // TODO: Complete the main function here
-  pointers[0] = (char *)mm_malloc(1000);
+  pointers[0] = (char *)mm_malloc(atoi(str3));
   mm_print((ulong)pointers[0] - sizeof(struct meta_data));
   mm_free(pointers[0]);
 
-  pointers[1] = (char *)mm_malloc(2000);
+  /*pointers[1] = (char *)mm_malloc(2000);
   mm_print((ulong)pointers[1] - sizeof(struct meta_data));
-  mm_free(pointers[1]);
+  mm_free(pointers[1]);*/
 
-  pointers[2] = (char *)mm_malloc(3000);
+/*  pointers[2] = (char *)mm_malloc(3000);
   mm_print((ulong)pointers[2] - sizeof(struct meta_data));
   mm_free(pointers[3]);
 
   pointers[3] = (char *)mm_malloc(4000);
   mm_print((ulong)pointers[3] - sizeof(struct meta_data));
-  mm_free(pointers[3]);
+  mm_free(pointers[3]);*/
 
   atexit(clean);
   return (EXIT_SUCCESS);

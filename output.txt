@@ -1,0 +1,10 @@
+mem page size: 4096 bytes
+bytes allocated per malloc: 12288
+=== malloc Pointer[0] 1000 === 
+Block 00: [OCCP] size = 1000 bytes
+=== malloc Pointer[1] 1000 === 
+Block 01: [FREE] size = 1000 bytes
+=== malloc Pointer[2] 2000 === 
+Block 02: [OCCP] size = 2000 bytes
+=== malloc Pointer[3] 2000 === 
+Block 03: [FREE] size = 2000 bytes
